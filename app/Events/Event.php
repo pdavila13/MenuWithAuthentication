@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace MenuWithAuthentication\Events;
 
 abstract class Event
 {

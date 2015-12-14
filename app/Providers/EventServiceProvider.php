@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace MenuWithAuthentication\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        'MenuWithAuthentication\Events\SomeEvent' => [
+            'MenuWithAuthentication\Listeners\EventListener',
         ],
     ];
 

@@ -140,15 +140,16 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        MenuWithAuthentication\Providers\AppServiceProvider::class,
+        MenuWithAuthentication\Providers\AuthServiceProvider::class,
+        MenuWithAuthentication\Providers\EventServiceProvider::class,
+        MenuWithAuthentication\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         // AdminLTE template provider
         'Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider'
 
     ],
 
@@ -198,6 +199,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
 
     ],
 

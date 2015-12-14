@@ -1,4 +1,5 @@
 CKEditor SCAYT Plugin
+=====================
 
 This plugin brings Spell Check As You Type (SCAYT) into CKEditor.
 
