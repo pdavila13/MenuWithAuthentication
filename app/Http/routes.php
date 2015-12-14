@@ -15,3 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Using class based composers...
+view()->composer(
+    'partials.sidebar', 'MenuWithAuthentication\Http\ViewComposers\SidebarComposer'
+);
+

@@ -27,7 +27,7 @@
         </form>
         <!-- /.search form -->
 
-        
+
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">HEADER</li>
@@ -41,6 +41,10 @@
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>
+
+            @foreach ($menu as $menuItem)
+                {{ $menuItem }}
+            @endforeach
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
