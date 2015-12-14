@@ -1,7 +1,7 @@
 <?php
 
-//Home
-MenuWithAuthentication::menu()
+//Home - us static d'un metode
+MenuWithAuthentication::menu('home')
     ->title('Home')
     ->icon('fa-dashboard')
     ->url('/home')
@@ -10,17 +10,19 @@ MenuWithAuthentication::menu()
     ->user('paolodavila');
 
 //Another Link
-MenuWithAuthentication::menu()
+MenuWithAuthentication::menu('another_link')
     ->title('Another Link')
     ->user(5);
 
 //Multilevel
-MenuWithAuthentication::menu()->title('Multilevel')->icon('fa-calendar-o');
- MenuWithAuthentication::menu()->title('Link in level 2')->icon('fa-desktop');
- MenuWithAuthentication::menu()->title('Link in level 2')->icon('fa-mobile');
+MenuWithAuthentication::menu('multilevel')->title('Multilevel')->icon('fa-calendar-o');
+ MenuWithAuthentication::menu('link1')->title('Link in level 2')->icon('fa-desktop');
+ MenuWithAuthentication::menu('link2')->title('Link in level 2')->icon('fa-mobile');
 
 //Últim menu
-MenuWithAuthentication::menu()
+MenuWithAuthentication::menu('ultim')
     ->title('Últim menu')
     ->icon('fa-bell')
     ->url('https://www.google.es');
+
+//$menuHome = MenuWithAuthentication::menu('home');

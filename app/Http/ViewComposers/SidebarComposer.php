@@ -19,7 +19,12 @@ class SidebarComposer {
      * @return void
      */
     public function compose(View $view) {
-        $view->with('menu', array());
+        $view->with('menu', $this->getSideBarMenu());
+    }
+
+    private function getSideBarMenu() {
+        $menu = MenuWithAuthentication::instance()->getMenu();
+        return array($menu);
     }
 
 }
