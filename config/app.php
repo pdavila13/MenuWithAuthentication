@@ -199,8 +199,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
-        'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
-
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'MenuWithAuthentication' => MenuWithAuthentication\MenuWithAuthentication::class
     ],
 
 ];

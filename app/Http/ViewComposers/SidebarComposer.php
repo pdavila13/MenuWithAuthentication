@@ -3,6 +3,7 @@
 namespace MenuWithAuthentication\Http\ViewComposers;
 
 use Illuminate\Contracts\View\View;
+use MenuWithAuthentication\MenuWithAuthentication;
 
 /**
  * Created by PhpStorm.
@@ -26,5 +27,4 @@ class SidebarComposer {
         $menu = MenuWithAuthentication::instance()->getMenu();
         return array($menu);
     }
-
 }

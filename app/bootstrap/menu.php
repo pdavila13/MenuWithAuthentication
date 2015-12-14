@@ -1,6 +1,6 @@
 <?php
 
-//Home - us static d'un metode
+//Home - Using a static method
 MenuWithAuthentication::menu('home')
     ->title('Home')
     ->icon('fa-dashboard')

@@ -1091,7 +1091,7 @@ namespace {
          */
         public static function handle($input, $output = null){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            return \App\Console\Kernel::handle($input, $output);
+            return \MenuWithAuthentication\Console\Kernel::handle($input, $output);
         }
         
         /**
@@ -1104,7 +1104,7 @@ namespace {
          */
         public static function terminate($input, $status){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            \App\Console\Kernel::terminate($input, $status);
+            \MenuWithAuthentication\Console\Kernel::terminate($input, $status);
         }
         
         /**
@@ -1117,7 +1117,7 @@ namespace {
          */
         public static function call($command, $parameters = array()){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            return \App\Console\Kernel::call($command, $parameters);
+            return \MenuWithAuthentication\Console\Kernel::call($command, $parameters);
         }
         
         /**
@@ -1130,7 +1130,7 @@ namespace {
          */
         public static function queue($command, $parameters = array()){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            \App\Console\Kernel::queue($command, $parameters);
+            \MenuWithAuthentication\Console\Kernel::queue($command, $parameters);
         }
         
         /**
@@ -1141,7 +1141,7 @@ namespace {
          */
         public static function all(){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            return \App\Console\Kernel::all();
+            return \MenuWithAuthentication\Console\Kernel::all();
         }
         
         /**
@@ -1152,7 +1152,7 @@ namespace {
          */
         public static function output(){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            return \App\Console\Kernel::output();
+            return \MenuWithAuthentication\Console\Kernel::output();
         }
         
         /**
@@ -1163,7 +1163,7 @@ namespace {
          */
         public static function bootstrap(){
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
-            \App\Console\Kernel::bootstrap();
+            \MenuWithAuthentication\Console\Kernel::bootstrap();
         }
         
     }
@@ -11649,6 +11649,100 @@ namespace {
             //Method inherited from \DebugBar\DebugBar            
             return \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
         }
+        
+    }
+
+
+    class Entrust extends \Zizaco\Entrust\EntrustFacade{
+        
+        /**
+         * Checks if the current user has a role by its name
+         *
+         * @param string $name Role name.
+         * @return bool 
+         * @static 
+         */
+        public static function hasRole($role, $requireAll = false){
+            return \Zizaco\Entrust\Entrust::hasRole($role, $requireAll);
+        }
+        
+        /**
+         * Check if the current user has a permission by its name
+         *
+         * @param string $permission Permission string.
+         * @return bool 
+         * @static 
+         */
+        public static function can($permission, $requireAll = false){
+            return \Zizaco\Entrust\Entrust::can($permission, $requireAll);
+        }
+        
+        /**
+         * Get the currently authenticated user or null.
+         *
+         * @return \Zizaco\Entrust\Illuminate\Auth\UserInterface|null 
+         * @static 
+         */
+        public static function user(){
+            return \Zizaco\Entrust\Entrust::user();
+        }
+        
+        /**
+         * Filters a route for a role or set of roles.
+         * 
+         * If the third parameter is null then abort with status code 403.
+         * Otherwise the $result is returned.
+         *
+         * @param string $route Route pattern. i.e: "admin/*"
+         * @param array|string $roles The role(s) needed
+         * @param mixed $result i.e: Redirect::to('/')
+         * @param bool $requireAll User must have all roles
+         * @return mixed 
+         * @static 
+         */
+        public static function routeNeedsRole($route, $roles, $result = null, $requireAll = true){
+            return \Zizaco\Entrust\Entrust::routeNeedsRole($route, $roles, $result, $requireAll);
+        }
+        
+        /**
+         * Filters a route for a permission or set of permissions.
+         * 
+         * If the third parameter is null then abort with status code 403.
+         * Otherwise the $result is returned.
+         *
+         * @param string $route Route pattern. i.e: "admin/*"
+         * @param array|string $permissions The permission(s) needed
+         * @param mixed $result i.e: Redirect::to('/')
+         * @param bool $requireAll User must have all permissions
+         * @return mixed 
+         * @static 
+         */
+        public static function routeNeedsPermission($route, $permissions, $result = null, $requireAll = true){
+            return \Zizaco\Entrust\Entrust::routeNeedsPermission($route, $permissions, $result, $requireAll);
+        }
+        
+        /**
+         * Filters a route for role(s) and/or permission(s).
+         * 
+         * If the third parameter is null then abort with status code 403.
+         * Otherwise the $result is returned.
+         *
+         * @param string $route Route pattern. i.e: "admin/*"
+         * @param array|string $roles The role(s) needed
+         * @param array|string $permissions The permission(s) needed
+         * @param mixed $result i.e: Redirect::to('/')
+         * @param bool $requireAll User must have all roles and permissions
+         * @return void 
+         * @static 
+         */
+        public static function routeNeedsRoleOrPermission($route, $roles, $permissions, $result = null, $requireAll = false){
+            \Zizaco\Entrust\Entrust::routeNeedsRoleOrPermission($route, $roles, $permissions, $result, $requireAll);
+        }
+        
+    }
+
+
+    class MenuWithAuthentication extends \MenuWithAuthentication\MenuWithAuthentication{
         
     }
 

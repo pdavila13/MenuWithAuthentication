@@ -19,26 +19,32 @@ class MenuItem {
      * @var
      */
     protected $title = null;
+
     /**
      * @var
      */
     protected $icon = null;
+
     /**
      * @var
      */
     protected $url = null;
+
     /**
      * @var
      */
     protected $role;
+
     /**
      * @var
      */
     protected $permission;
+
     /**
      * @var
      */
     protected $user;
+
     /**
      * @var
      */
@@ -48,7 +54,6 @@ class MenuItem {
      * MenuItem constructor.
      */
     public function __construct($id) {
-
         $this->id = $id;
     }
 
@@ -142,6 +147,7 @@ class MenuItem {
         $data['title'] = $this->title;
         return (String) view('menu.menuitem', $data);
     }
+
 
 
 }
