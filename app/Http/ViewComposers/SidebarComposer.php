@@ -23,8 +23,12 @@ class SidebarComposer {
         $view->with('menu', $this->getSideBarMenu());
     }
 
+    /**
+     * @return array
+     */
     private function getSideBarMenu() {
-        $menu = MenuWithAuthentication::instance()->getMenu();
-        return array($menu);
+        //$menu = MenuWithAuthentication::instance(1)->getMenu();
+        //return array($menu);
+        return array();
     }
 }

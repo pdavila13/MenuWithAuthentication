@@ -5,13 +5,13 @@ MenuWithAuthentication::menu('home')
     ->title('Home')
     ->icon('fa-dashboard')
     ->url('/home')
-    ->rol('home')
+    ->role('home')
     ->permission('home')
     ->user('paolodavila');
 
 //Another Link
 MenuWithAuthentication::menu('another_link')
-    ->title('Another Link')
+    ->title('Another Link23')
     ->user(5);
 
 //Multilevel

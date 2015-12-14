@@ -15,6 +15,12 @@ use Illuminate\Support\Str;
  * @package MenuWithAuthentication\Menu
  */
 class MenuItem {
+
+    /**
+     * @var
+     */
+    private $id;
+
     /**
      * @var
      */
@@ -46,15 +52,55 @@ class MenuItem {
     protected $user;
 
     /**
+     * @var MenuItem
+     */
+    protected static $current;
+
+    /**
      * @var
      */
-    private $id;
+    protected $level;
+
+    /**
+     * @var
+     */
+    protected $subItems;
 
     /**
      * MenuItem constructor.
      */
     public function __construct($id) {
         $this->id = $id;
+
+        if(is_null(static::$current)){
+            static::$current = $this;
+            $this->level(0);
+        } else {
+            static::$current->addItem($this);
+            $this->level(static::$current->level() + 1);
+        }
+    }
+
+    /**
+     * @param $item
+     * @return $this
+     */
+    public function addItem($item){
+        $this->subItems[] = $item;
+        return $this;
+    }
+
+    /**
+     * @param null $level
+     * @return $this
+     */
+    public function level($level = null){
+        if($level == null){
+            return $this->level;
+        }
+
+        $this->level = $level;
+        return $this;
     }
 
     /**
@@ -148,6 +194,13 @@ class MenuItem {
         return (String) view('menu.menuitem', $data);
     }
 
-
-
+    /**
+     * @return $this|MenuItem[]
+     */
+    public function items() {
+        $old = static::$current;
+        static::$current = $this;
+        static::$current = $old;
+        return $this;
+    }
 }

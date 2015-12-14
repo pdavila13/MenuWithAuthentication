@@ -146,10 +146,8 @@ return [
         MenuWithAuthentication\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-        // AdminLTE template provider
-        'Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider'
+        Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class
 
     ],
 

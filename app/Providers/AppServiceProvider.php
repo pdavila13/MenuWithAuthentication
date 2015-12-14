@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //include app_path('bootstrap/menu.php');
+        require app_path('bootstrap/menu.php');
     }
 
     /**

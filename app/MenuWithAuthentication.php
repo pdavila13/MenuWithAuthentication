@@ -8,7 +8,6 @@
 
 namespace MenuWithAuthentication;
 
-
 use MenuWithAuthentication\Menu\MenuItem;
 
 /**
@@ -47,11 +46,11 @@ class MenuWithAuthentication {
      * @return null|static
      * Function used in SidebarComposer -> getSideBarMenu
      */
-    public static function instance() {
+    public static function instance($id) {
         //Objects to verify that a unique
         if(is_null(static::$instance)) {
             //Singleton: object ensure that you generate yourself once
-            return static::$instance = new static;
+            return static::$instance = new static($id);
         }
 
         //Variable that is stored at the same statically
@@ -63,6 +62,7 @@ class MenuWithAuthentication {
      * returns a list of menu items
      */
     public function getMenu() {
-        return $this->menu->items();
+        return array();
+        //return $this->menu->items();
     }
 }
